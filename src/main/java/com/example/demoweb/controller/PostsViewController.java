@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 @Controller
@@ -18,7 +19,7 @@ public class PostsViewController {
     PostService postsService;
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
-    public String list(Model model) {
+    public String list(Model model) throws ParseException {
         model.addAttribute("appName", "Мое супер приложение");
         model.addAttribute("posts",postsService.listAllPosts() );
         return "List";
