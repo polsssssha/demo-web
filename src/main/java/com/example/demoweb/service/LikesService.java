@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class LikesService {
+
     @Autowired
     PostRepository postRepository;
 
@@ -16,5 +17,4 @@ public class LikesService {
         postRepository.save(post);
         return post.getLikes();
     }
-
 }

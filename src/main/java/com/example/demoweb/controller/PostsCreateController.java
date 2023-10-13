@@ -10,17 +10,16 @@ import org.springframework.web.bind.annotation.*;
 public class PostsCreateController {
 
     @Autowired
-    private PostService postsService;
-
-    @RequestMapping(path = "/new", method = RequestMethod.GET)
+    PostService postService;
+    @RequestMapping(path="/new", method= RequestMethod.GET)
     public String create(Model model) {
-        model.addAttribute("appName", "Новый пост: ");
+        model.addAttribute("appName", "Мое супер приложение");
         return "create";
     }
 
     @RequestMapping(path = "/new", method = RequestMethod.POST)
     public String doCreate(@ModelAttribute("text") String text) {
-        postsService.create(text);
+        postService.create(text);
         return "redirect:/";
     }
 }
