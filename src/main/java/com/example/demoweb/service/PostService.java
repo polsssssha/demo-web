@@ -30,7 +30,7 @@ public class PostService {
     public void create(String text) {
         long newId = posts.size();
         posts.add(new Post(newId, text, new Date()));
-        Post post = new Post(null, text, new Date());
+        Post post = new Post(0, text, new Date());
         postRepository.save(post);
     }
 }
